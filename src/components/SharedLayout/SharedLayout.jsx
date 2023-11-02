@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Loader } from "../Loader/Loader";
+import logo from "images/logo.png";
+import catalog_icon from "images/catalog_icon.png";
+import heart_icon from "images/heart_icon.png";
+import { Loader } from "components/Loader/Loader";
 import { Container, Header, Link } from "./SharedLayout.styled";
-import logo from "../../images/logo.png";
-import catalog_icon from "../../images/catalog_icon.png";
-import heart_icon from "../../images/heart_icon.png";
 
 export const SharedLayout = () => {
   return (

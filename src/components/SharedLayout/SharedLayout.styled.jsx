@@ -42,7 +42,7 @@ justify-content: center;
   font-size: 18px;
 
   &.active {
-    color: var(--white-eighty);
+    color: var(--white);
     background-color: var(--blue);
     box-shadow: 5px 5px 2px var(--text-color-fifty);
     transition: var(--transition);

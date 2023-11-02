@@ -1,6 +1,12 @@
+import { ListCars } from "../components/ListCars/ListCars";
 
 const Catalog = () => {
-    return <h1>Catalog</h1>
+
+  return (
+    <>
+      <ListCars />
+    </>
+  );
 };
 
 export default Catalog;

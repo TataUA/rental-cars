@@ -1,4 +1,4 @@
-import { Wrapper, Title, Span, Text } from "../components/pagesStyled/Home.styled";
+import { Wrapper, Title, Span, Text } from "components/pagesStyled/Home.styled";
 
 const Home = () => {
   return (

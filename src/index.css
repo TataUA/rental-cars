@@ -10,6 +10,7 @@
   --text-color: #121417;
   --text-color-fifty: #12141780;
   --text-color-twenty: #12141733;
+  --border-color-ten: #1214170d;
   --border-color-five: #1214170d;
   /*TRANSITIONS*/
   --transition: background-color 500ms ease-in-out, color 500ms ease-in-out,

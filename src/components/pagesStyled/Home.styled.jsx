@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import bg_auto from "../../images/bg_auto.jpg"
+import bg_auto from "images/bg_auto.jpg"
 
 export const Wrapper = styled.div`
 height: 700px;
