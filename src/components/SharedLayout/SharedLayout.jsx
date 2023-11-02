@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
-import { Container, Header, Link, Footer } from "./SharedLayout.styled";
+import { Container, Header, Link } from "./SharedLayout.styled";
 import logo from "../../images/logo.png";
 import catalog_icon from "../../images/catalog_icon.png";
 import heart_icon from "../../images/heart_icon.png";
@@ -28,7 +28,6 @@ export const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {/* <Footer>Contacts with us: &#9990; +380730000000 </Footer> */}
-    </Container>
+         </Container>
   );
 };

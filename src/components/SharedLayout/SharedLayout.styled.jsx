@@ -49,7 +49,3 @@ justify-content: center;
   }
 `;
 
-// export const Footer = styled.footer`
-//     position: absolute;
-//     bottom: 0;
-// `
