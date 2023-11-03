@@ -75,6 +75,18 @@ export const WrapperDown = styled.div`
   display: flex;
   flex-direction: row;
   gap: 6px;
+  .tag_make,
+  .tag_functionalities {
+    width: 130px;
+    height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-right: none;
+  }
+  .tag_make {
+    width: 80px;
+  }
 `;
 
 export const Tag = styled.p`
@@ -85,14 +97,8 @@ export const Tag = styled.p`
   color: var(--text-color-fifty);
   padding-right: 6px;
   border-right: 1px solid var(--border-color-ten);
-  &:last-of-type {
-    width: 130px;
-    height: 18px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-right: none;
-  }
+  //&:last-of-type 
+  
 `;
 
 export const Button = styled.button`

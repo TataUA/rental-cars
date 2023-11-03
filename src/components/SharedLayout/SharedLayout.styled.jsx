@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 15px 60px;
   font-family: "Manrope", sans-serif;
   background-color: var(--white);
 `;
@@ -18,8 +18,7 @@ export const Header = styled.header`
   display: flex;
   width: 100%;
   padding: 15px 0;
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.4); */
-
+  
   > nav {
     display: flex;
     width: 100%;
