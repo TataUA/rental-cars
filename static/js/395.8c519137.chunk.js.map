@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/395.8c519137.chunk.js","mappings":"kIAKA,UAJkB,WAChB,OAAOA,EAAAA,EAAAA,KAAA,MAAAC,SAAI,YACb,C","sources":["pages/Favorites.jsx"],"sourcesContent":["\nconst Favorites = () => {\n  return <h1>Favorite</h1>;\n};\n\nexport default Favorites;\n"],"names":["_jsx","children"],"sourceRoot":""}
