@@ -6,11 +6,13 @@ const initialState = {
     items: [],
     isLoading: false,
     error: null,
-    query: { make: "", rentalPrice: "", mileage: "" },
+    query: { make: "", rentalPrice: "", mileageMin: "", mileageMax: "" },
     page: 1,
   },
   favoriteItems: [],
+  currentItem: null,
   isLoadMoreBtn: false,
+  activeModal: false,
 };
 
 const advertsSlice = createSlice({
@@ -22,10 +24,16 @@ const advertsSlice = createSlice({
       state.adverts.page = payload;
     },
     setQuery: (state, { payload }) => {
-      state.adverts.query = payload;
+      state.adverts.query = { ...state.adverts.query, ...payload };
     },
     setIsLoadMoreBtn: (state, { payload }) => {
       state.isLoadMoreBtn = payload;
+    },
+    setActiveModal: (state, { payload }) => {
+      state.activeModal = payload;
+    },
+    setCurrentItem: (state, { payload }) => {
+      state.currentItem = payload;
     },
     addFavoriteItems: (state, { payload }) => {
       state.favoriteItems.push(payload);
@@ -65,6 +73,8 @@ export const {
   setPage,
   setQuery,
   setIsLoadMoreBtn,
+  setActiveModal,
+  setCurrentItem,
   addFavoriteItems,
   deleteFavoriteItems,
 } = advertsSlice.actions;

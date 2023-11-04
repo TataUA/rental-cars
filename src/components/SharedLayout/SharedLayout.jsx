@@ -28,6 +28,6 @@ export const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-         </Container>
+    </Container>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.li`
   position: relative;
   width: 274px;
   height: 426px;
@@ -49,6 +49,7 @@ export const Description = styled.div`
   padding: 0 8px;
   margin-bottom: 28px;
 `;
+
 export const ItemTitle = styled.h3`
   display: flex;
   margin-bottom: 8px;
@@ -57,13 +58,26 @@ export const ItemTitle = styled.h3`
   line-height: 24px;
   color: var(--text-color);
 `;
+
+export const TitleWrapper = styled.div`
+  max-width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export const Model = styled.span`
   color: var(--blue);
 `;
+
 export const Year = styled.span`
   margin-right: auto;
 `;
-export const Price = styled.span``;
+
+export const Price = styled.span`
+  margin-left: auto;
+  max-width: 50px;
+`;
 export const TagsWrapper = styled.div``;
 export const WrapperUp = styled.div`
   margin-bottom: 4px;
@@ -87,6 +101,12 @@ export const WrapperDown = styled.div`
   .tag_make {
     width: 80px;
   }
+  .tag_mileage {
+    &:nth-of-type(3) {
+      border-left: 1px solid var(--border-color-ten);
+      padding-left: 4px;
+    }
+  }
 `;
 
 export const Tag = styled.p`
@@ -97,8 +117,6 @@ export const Tag = styled.p`
   color: var(--text-color-fifty);
   padding-right: 6px;
   border-right: 1px solid var(--border-color-ten);
-  //&:last-of-type 
-  
 `;
 
 export const Button = styled.button`

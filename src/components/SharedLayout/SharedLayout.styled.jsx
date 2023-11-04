@@ -5,20 +5,23 @@ export const Container = styled.div`
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 15px 60px;
+  padding: 0 15px ;
   font-family: "Manrope", sans-serif;
   background-color: var(--white);
 `;
 
 export const Header = styled.header`
   position: fixed;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   top: 0;
   display: flex;
   width: 100%;
   padding: 15px 0;
-  
+  z-index: 10;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--blue);
+
   > nav {
     display: flex;
     width: 100%;
@@ -29,10 +32,10 @@ export const Header = styled.header`
 `;
 
 export const Link = styled(NavLink)`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
@@ -47,4 +50,3 @@ justify-content: center;
     transition: var(--transition);
   }
 `;
-

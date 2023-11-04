@@ -1,10 +1,25 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectActiveModal,
+  selectCurrentItem,
+  selectFavoriteItems,
+} from "redux/selectors";
+import {
+  addFavoriteItems,
+  deleteFavoriteItems,
+  setActiveModal,
+  setCurrentItem,
+} from "redux/advertsSlice";
+import { Modal } from "components/Modal/Modal";
+import logo from "images/logo.png";
 import {
   ItemWrapper,
   Image,
   HeartBtn,
   Description,
   ItemTitle,
+  TitleWrapper,
   Model,
   Year,
   Price,
@@ -14,29 +29,20 @@ import {
   Tag,
   Button,
 } from "./ItemCar.styled";
-import logo from "images/logo.png";
-import { useDispatch, useSelector } from "react-redux";
-import { selectFavoriteItems } from "redux/selectors";
-import { addFavoriteItems, deleteFavoriteItems } from "redux/advertsSlice";
 
 export const ItemCar = ({ item }) => {
   const {
-    //id,
+    id,
     year,
     make,
     model,
     type,
     img,
     photoLink,
-    // description,
-    // fuelConsumption,
-    // engineSize,
-    // accessories,
     functionalities,
     rentalPrice,
     rentalCompany,
-    // address,
-    // rentalConditions,
+    //address,
     mileage,
   } = item;
 
@@ -44,10 +50,24 @@ export const ItemCar = ({ item }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const favoriteItems = useSelector(selectFavoriteItems);
+  const currentItem = useSelector(selectCurrentItem);
+  const activeModal = useSelector(selectActiveModal);
 
   function handleToggleFavorite() {
     setIsFavorite(!isFavorite);
   }
+
+  const onOpenModal = () => {
+    dispatch(setActiveModal(!activeModal));
+    dispatch(setCurrentItem(item));
+    document.body.classList.add("modal-open");
+  };
+
+  const onCloseModal = () => {
+    dispatch(setActiveModal(!activeModal));
+    dispatch(setCurrentItem(null));
+    document.body.classList.remove("modal-open");
+  };
 
   useEffect(() => {
     if (firstRender) {
@@ -91,8 +111,10 @@ export const ItemCar = ({ item }) => {
       </HeartBtn>
       <Description>
         <ItemTitle>
-          {make} &nbsp;<Model>{model}</Model>
-          <Year>, {year}</Year>
+          <TitleWrapper>
+            {make} &nbsp;<Model>{model}</Model>
+            <Year>, {year}</Year>
+          </TitleWrapper>
           <Price>{rentalPrice}</Price>
         </ItemTitle>
         <TagsWrapper>
@@ -104,12 +126,21 @@ export const ItemCar = ({ item }) => {
           <WrapperDown>
             <Tag>{type}</Tag>
             <Tag className="tag_make">{make}</Tag>
-            <Tag>{mileage.toLocaleString("en-US")}</Tag>
+            <Tag className="tag_mileage">{mileage.toLocaleString("en-US")}</Tag>
             <Tag className="tag_functionalities">{functionalities[0]}</Tag>
           </WrapperDown>
         </TagsWrapper>
       </Description>
-      <Button>Learn more</Button>
+      <Button
+        onClick={() => {
+          onOpenModal();
+        }}
+      >
+        Learn more
+      </Button>
+      {currentItem && id === currentItem.id && activeModal && (
+        <Modal show={activeModal} close={onCloseModal} item={item} />
+      )}
     </ItemWrapper>
   );
 };

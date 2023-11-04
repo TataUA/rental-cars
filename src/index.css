@@ -4,6 +4,7 @@
   /*COLORS*/
   --white: #ffffff;
   --white-eighty: #ffffffcc;
+  --input-color:  #F7F7FB;
   --blue: #3470ff;
   --blue-active: #0b44cd;
   --text-color-gray: #8a8a89;
@@ -31,13 +32,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.modal-open {
+  overflow: hidden;
+  }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 ul,
-ol {
+ol,
+li {
   list-style: none;
   margin: 0;
   padding: 0;
