@@ -60,7 +60,7 @@ export const Input = styled.input`
   }
 `;
 
-export const ListMakes = styled.li`
+export const ListMakes = styled.ul`
   display: block;
   position: absolute;
   z-index: 3;

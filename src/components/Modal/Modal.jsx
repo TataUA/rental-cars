@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
-import { ModalBackdrop } from "./Modal.styled";
 import { useEffect } from "react";
+import { ModalItemCar } from "components/ModalItemCar/ModalItemCar";
+import { ModalBackdrop, ModalContent, Button } from "./Modal.styled";
 
 export const Modal = ({ show, close, item }) => {
   useEffect(() => {
@@ -19,16 +20,19 @@ export const Modal = ({ show, close, item }) => {
   return ReactDOM.createPortal(
     <>
       <ModalBackdrop onClick={() => close()}>
-        <div
-          className="modal-content"
-          onClick={(e) => e.stopPropagation()}
-        ></div>
-        <button type="button" onClick={() => close()}>
-          <svg viewBox="0 0 512 512" fill="currentColor" height="12" width="12">
-            <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z" />
-          </svg>
-        </button>
-        <h1>{item.id}</h1>
+        <ModalContent onClick={(e) => e.stopPropagation()}>
+          <Button type="button" onClick={() => close()}>
+            <svg
+              className="close-btn"
+              viewBox="0 0 512 512"
+              height="20"
+              width="20"
+            >
+              <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z" />
+            </svg>
+          </Button>
+          <ModalItemCar item={item} />
+        </ModalContent>
       </ModalBackdrop>
     </>,
     document.getElementById("modal")

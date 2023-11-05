@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 15px ;
+  padding: 0 15px;
   font-family: "Manrope", sans-serif;
   background-color: var(--white);
 `;

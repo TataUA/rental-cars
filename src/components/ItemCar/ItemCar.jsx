@@ -42,9 +42,11 @@ export const ItemCar = ({ item }) => {
     functionalities,
     rentalPrice,
     rentalCompany,
-    //address,
+    address,
     mileage,
   } = item;
+
+  const adressArray = address.split(",");
 
   const [firstRender, setFirstRender] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -91,8 +93,10 @@ export const ItemCar = ({ item }) => {
 
   return (
     <ItemWrapper>
-      {img || photoLink ? (
-        <Image src={logo} alt="car" width={274} height={268}></Image>
+      {img ? (
+        <Image src={img} alt={make} width={274} height={268}></Image>
+      ) : photoLink ? (
+        <Image src={photoLink} alt={make} width={274} height={268}></Image>
       ) : (
         <Image src={logo} alt="car" width={274} height={268}></Image>
       )}
@@ -119,9 +123,9 @@ export const ItemCar = ({ item }) => {
         </ItemTitle>
         <TagsWrapper>
           <WrapperUp>
-            <Tag>Kiev</Tag>
-            <Tag>Ukraine</Tag>
-            <Tag>{rentalCompany}</Tag>
+            <Tag>{adressArray[adressArray.length - 2]}</Tag>
+            <Tag>{adressArray[adressArray.length - 1]}</Tag>
+            <Tag className="tag_company">{rentalCompany}</Tag>
           </WrapperUp>
           <WrapperDown>
             <Tag>{type}</Tag>

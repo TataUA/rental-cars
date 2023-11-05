@@ -14,6 +14,7 @@ export const ItemWrapper = styled.li`
 
 export const Image = styled.img`
   margin-bottom: 14px;
+  object-fit: cover;
   background-color: var(--text-color);
   border-radius: 14px;
 `;
@@ -84,6 +85,13 @@ export const WrapperUp = styled.div`
   display: flex;
   flex-direction: row;
   gap: 6px;
+
+  .tag_company {
+    width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 export const WrapperDown = styled.div`
   display: flex;
@@ -101,7 +109,7 @@ export const WrapperDown = styled.div`
   .tag_make {
     width: 80px;
   }
-  .tag_mileage {
+    .tag_mileage {
     &:nth-of-type(3) {
       border-left: 1px solid var(--border-color-ten);
       padding-left: 4px;

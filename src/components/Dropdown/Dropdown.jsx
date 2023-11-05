@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { setQuery } from "redux/advertsSlice";
 import { DownBtn } from "components/DownBtn/DownBtn";
+import makesData from "data/makes.json";
 import {
   Wrapper,
   Label,
@@ -10,43 +12,21 @@ import {
   ListMakes,
   ItemMake,
 } from "./Dropdown.styled";
-import { setQuery } from "redux/advertsSlice";
 
 export const Dropdown = () => {
-  const makes = [
-    "Buick",
-    "Volvo",
-    "HUMMER",
-    "Subaru",
-    "Mitsubishi",
-    "Nissan",
-    "Lincoln",
-    "GMC",
-    "Hyundai",
-    "MINI",
-    "Bentley",
-    "Mercedes-Benz",
-    "Aston Martin",
-    "Pontiac",
-    "Lamborghini",
-    "Audi",
-    "BMW",
-    "Chevrolet",
-    "Mercedes-Benz",
-    "Chrysler",
-    "Kia",
-    "Land",
-  ];
   const dispatch = useDispatch();
   const [makesIsVisible, setMakesIsVisible] = useState(false);
   const [makeValue, setMakeValue] = useState("");
-  const [priceValue, 
+  const [
+    priceValue,
     //setPriceValue
   ] = useState("");
-  const [mileageMinValue, 
+  const [
+    mileageMinValue,
     //setMileageMinValue
   ] = useState("");
-  const [mileageMaxValue, 
+  const [
+    mileageMaxValue,
     //setMileageMaxValue
   ] = useState("");
 
@@ -60,9 +40,11 @@ export const Dropdown = () => {
           value={makeValue}
           name="make"
           placeholder="Enter the text"
+          readOnly
         />
         <DownBtn visible={makesIsVisible} onHandleClick={setMakesIsVisible} />
         <ListMakes
+          id="listMakes"
           className={` ${makesIsVisible ? "makes_visible" : "makes_hidden"}`}
         >
           <ItemMake
@@ -70,17 +52,25 @@ export const Dropdown = () => {
             data-value={""}
             onClick={() => {
               setMakeValue("");
+              document
+                .getElementById("listMakes")
+                .classList.add("makes_hidden");
+              setMakesIsVisible(false);
             }}
           >
             All
           </ItemMake>
-          {makes.map((make, index) => (
+          {makesData.map((make, index) => (
             <ItemMake
               key={index}
               className={`make_item ${makeValue === make ? "active_item" : ""}`}
               data-value={make}
               onClick={() => {
                 setMakeValue(make);
+                document
+                  .getElementById("listMakes")
+                  .classList.add("makes_hidden");
+                setMakesIsVisible(false);
               }}
             >
               {make}

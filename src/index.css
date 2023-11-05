@@ -5,6 +5,7 @@
   --white: #ffffff;
   --white-eighty: #ffffffcc;
   --input-color:  #F7F7FB;
+  --modal-text-background:  #F9F9F9;
   --blue: #3470ff;
   --blue-active: #0b44cd;
   --text-color-gray: #8a8a89;
@@ -13,6 +14,7 @@
   --text-color-twenty: #12141733;
   --border-color-ten: #1214170d;
   --border-color-five: #1214170d;
+  --modal-text-color:  #363535;
   /*TRANSITIONS*/
   --transition: background-color 500ms ease-in-out, color 500ms ease-in-out,
     box-shadow 500ms ease-in-out;
@@ -62,8 +64,7 @@ p {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
-}
+  }
 
 a {
   text-decoration: none;

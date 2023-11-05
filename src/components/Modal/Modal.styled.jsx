@@ -12,14 +12,34 @@ export const ModalBackdrop = styled.div`
   justify-content: center;
   align-items: start;
   overflow: auto;
-  
-  
-  .modal-content{
-    width: 541px;
-    height: 752px;
-    border-radius: 24px;
-    background-color: var(--white);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      
+`;
+
+export const ModalContent = styled.div`
+  position: relative;
+  width: 461px;
+  padding: 40px;
+  font-family: "Manrope", sans-serif;
+  border-radius: 24px;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+`;
+
+export const Button = styled.button`
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  position: absolute;
+  display: inline-block;
+  top: 14px;
+  right: 14px;
+  background-color: transparent;
+  border: none;
+
+  .close-btn {
+    &:hover,
+    :focus {
+      fill: var(--blue-active);
+      transition: var(--transition);
+    }
   }
 `;
