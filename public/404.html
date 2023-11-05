@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Перенаправление...</title>
+    <script>
+      if (window.location.href.endsWith("/")) {
+        window.location.replace(window.location.origin + window.location.pathname + "index.html");
+      }
+    </script>
+  </head>
+  <body>
+    <p>Если вы не перенаправлены, <a href="index.html">нажмите здесь</a>.</p>
+  </body>
+</html>
