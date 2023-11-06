@@ -119,6 +119,65 @@ export const ItemMake = styled.li`
   }
 `;
 
+export const ListPrices = styled.ul`
+  display: block;
+  position: absolute;
+  z-index: 3;
+  width: 104px;
+  height: 188px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background-color: var(--white);
+  top: 78px;
+  left: 0;
+  border-top: 1px solid var(--border-color-five);
+  box-shadow: 0px 4px 36px 0px var(--border-color-five);
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  scrollbar-width: thin;
+  overflow-y: auto;
+  overscroll-behavior: auto;
+  cursor: pointer;
+  transition: opacity 0.3s;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color-ten);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-twenty);
+  }
+
+  .price_item {
+    margin-bottom: 8px;
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+
+  &.prices_visible {
+    opacity: 1;
+  }
+
+  &.prices_hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+`;
+
+export const ItemPrice = styled.li`
+  &.active_item {
+    color: var(--text-color);
+  }
+`;
+
 export const MileageWrapper = styled.div`
   display: flex;
 `;

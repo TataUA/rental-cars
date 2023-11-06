@@ -13,8 +13,15 @@ export const selectActiveModal = (state) => state.activeModal;
 export const selectFilteredAdverts = createSelector(
   [selectAdverts, selectQuery],
   (items, query) => {
-    return items.filter((item) =>
+    let filtered = items.filter((item) =>
       item.make.toLowerCase().includes(query.make.toLowerCase())
+    );
+
+    if (query.rentalPrice === 0) {
+      return;
+    }
+    return filtered.filter(
+      (item) => item.rentalPrice.substring(1) >= query.rentalPrice
     );
   }
 );

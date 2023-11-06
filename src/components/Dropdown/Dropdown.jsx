@@ -11,16 +11,16 @@ import {
   Button,
   ListMakes,
   ItemMake,
+  ListPrices,
+  ItemPrice,
 } from "./Dropdown.styled";
 
 export const Dropdown = () => {
   const dispatch = useDispatch();
   const [makesIsVisible, setMakesIsVisible] = useState(false);
+  const [pricesIsVisible, setPricesIsVisible] = useState(false);
   const [makeValue, setMakeValue] = useState("");
-  const [
-    priceValue,
-    //setPriceValue
-  ] = useState("");
+  const [priceValue, setPriceValue] = useState("");
   const [
     mileageMinValue,
     //setMileageMinValue
@@ -30,10 +30,10 @@ export const Dropdown = () => {
     //setMileageMaxValue
   ] = useState("");
 
-  var numbers = [];
-for (var i = 10; i <= 500; i += 10) {
-  numbers.push(i);
-}
+  var prices = [];
+  for (var i = 10; i <= 500; i += 10) {
+    prices.push(i);
+  }
 
   return (
     <Wrapper>
@@ -93,7 +93,43 @@ for (var i = 10; i <= 500; i += 10) {
           name="price"
           readOnly
         />
-        <DownBtn />
+        <DownBtn visible={pricesIsVisible} onHandleClick={setPricesIsVisible} />
+        <ListPrices
+          id="listPrices"
+          className={` ${pricesIsVisible ? "prices_visible" : "prices_hidden"}`}
+        >
+          <ItemPrice
+            className={`price_item ${priceValue === "" ? "active_item" : ""}`}
+            data-value={""}
+            onClick={() => {
+              setPriceValue("");
+              document
+                .getElementById("listPrices")
+                .classList.add("prices_hidden");
+              setPricesIsVisible(false);
+            }}
+          >
+            All
+          </ItemPrice>
+          {prices.map((price, index) => (
+            <ItemPrice
+              key={index}
+              className={`price_item ${
+                priceValue === price ? "active_item" : ""
+              }`}
+              data-value={price}
+              onClick={() => {
+                setPriceValue(price);
+                document
+                  .getElementById("listPrices")
+                  .classList.add("prices_hidden");
+                setPricesIsVisible(false);
+              }}
+            >
+              {price}
+            </ItemPrice>
+          ))}
+        </ListPrices>
       </Label>
       <Label>
         Сar mileage / km
@@ -117,7 +153,7 @@ for (var i = 10; i <= 500; i += 10) {
       <Button
         type="submit"
         onClick={() => {
-          dispatch(setQuery({ make: `${makeValue}` }));
+          dispatch(setQuery({ make: `${makeValue}`, rentalPrice: `${priceValue}` }));
         }}
       >
         Search
