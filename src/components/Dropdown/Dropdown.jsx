@@ -13,7 +13,7 @@ import {
   ItemMake,
   ListPrices,
   ItemPrice,
-  InputValue
+  InputValue,
 } from "./Dropdown.styled";
 
 export const Dropdown = () => {
@@ -90,12 +90,12 @@ export const Dropdown = () => {
         <Input
           className={"input-price"}
           type="text"
-          value={''}
+          value={""}
           name="price"
           readOnly
         />
         <InputValue
-        className={`price_value ${priceValue === "" ? "" : "active_item"}`}
+          className={`price_value ${priceValue === "" ? "" : "active_item"}`}
         >{` To ${priceValue}$`}</InputValue>
         <DownBtn visible={pricesIsVisible} onHandleClick={setPricesIsVisible} />
         <ListPrices
@@ -154,10 +154,13 @@ export const Dropdown = () => {
           />
         </MileageWrapper>
       </Label>
+      
       <Button
         type="submit"
         onClick={() => {
-          dispatch(setQuery({ make: `${makeValue}`, rentalPrice: `${priceValue}` }));
+          dispatch(
+            setQuery({ make: `${makeValue}`, rentalPrice: `${priceValue}` })
+          );
         }}
       >
         Search
