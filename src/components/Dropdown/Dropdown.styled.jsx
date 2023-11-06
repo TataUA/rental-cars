@@ -55,7 +55,7 @@ export const Input = styled.input`
   line-height: 20px;
   color: var(--text-color);
 
-  &.input-make::placeholder {
+  &::placeholder {
     color: var(--text-color);
   }
 `;
@@ -177,6 +177,20 @@ export const ItemPrice = styled.li`
     color: var(--text-color);
   }
 `;
+
+export const InputValue = styled.p`
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text-color-gray);
+  &.active_item {
+    color: var(--text-color);
+  }
+
+`
 
 export const MileageWrapper = styled.div`
   display: flex;

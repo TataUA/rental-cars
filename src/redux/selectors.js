@@ -21,7 +21,8 @@ export const selectFilteredAdverts = createSelector(
       return;
     }
     return filtered.filter(
-      (item) => item.rentalPrice.substring(1) >= query.rentalPrice
+      (item) =>
+        Number(item.rentalPrice.substring(1)) >= Number(query.rentalPrice)
     );
   }
 );

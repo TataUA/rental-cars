@@ -13,6 +13,7 @@ import {
   ItemMake,
   ListPrices,
   ItemPrice,
+  InputValue
 } from "./Dropdown.styled";
 
 export const Dropdown = () => {
@@ -89,10 +90,13 @@ export const Dropdown = () => {
         <Input
           className={"input-price"}
           type="text"
-          value={priceValue}
+          value={''}
           name="price"
           readOnly
         />
+        <InputValue
+        className={`price_value ${priceValue === "" ? "" : "active_item"}`}
+        >{` To ${priceValue}$`}</InputValue>
         <DownBtn visible={pricesIsVisible} onHandleClick={setPricesIsVisible} />
         <ListPrices
           id="listPrices"
