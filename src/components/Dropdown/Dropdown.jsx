@@ -30,6 +30,11 @@ export const Dropdown = () => {
     //setMileageMaxValue
   ] = useState("");
 
+  var numbers = [];
+for (var i = 10; i <= 500; i += 10) {
+  numbers.push(i);
+}
+
   return (
     <Wrapper>
       <Label>

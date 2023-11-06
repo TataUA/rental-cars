@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { ModalItemCar } from "components/ModalItemCar/ModalItemCar";
 import { ModalBackdrop, ModalContent, Button } from "./Modal.styled";
 
@@ -37,4 +38,10 @@ export const Modal = ({ show, close, item }) => {
     </>,
     document.getElementById("modal")
   );
+};
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  close: PropTypes.bool.isRequired,
+  item: PropTypes.shape({}).isRequired,
 };

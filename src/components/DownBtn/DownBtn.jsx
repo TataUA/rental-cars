@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { DownButton } from "./DownBtn.styled";
 
 export const DownBtn = ({ visible, onHandleClick }) => {
@@ -26,4 +27,9 @@ export const DownBtn = ({ visible, onHandleClick }) => {
       )}
     </DownButton>
   );
+};
+
+DownBtn.propTypes = {
+  visible: PropTypes.bool,
+  onHandleClick: PropTypes.func,
 };

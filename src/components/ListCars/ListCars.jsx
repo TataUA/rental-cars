@@ -1,4 +1,5 @@
 import { ItemCar } from "components/ItemCar/ItemCar";
+import PropTypes from "prop-types";
 import { List } from "./ListCars.styled";
 
 export const ListCars = ({ items }) => {
@@ -11,4 +12,8 @@ export const ListCars = ({ items }) => {
       </List>
     </>
   );
+};
+
+ListCars.propTypes = {
+  items: PropTypes.array.isRequired,
 };
