@@ -20,9 +20,21 @@ export const selectFilteredAdverts = createSelector(
     if (query.rentalPrice === 0) {
       return;
     }
-    return filtered.filter(
+    let filteredByPrice = filtered.filter(
       (item) =>
         Number(item.rentalPrice.substring(1)) >= Number(query.rentalPrice)
+    );
+
+    if (query.mileageMin === 0 && query.mileageMax === 0) {
+      return;
+    }
+
+    return filteredByPrice.filter(
+      (item) =>
+        item.mileage >= Number(query.mileageMin) &&
+        (!query.mileageMax
+          ? item.mileage
+          : item.mileage <= Number(query.mileageMax))
     );
   }
 );

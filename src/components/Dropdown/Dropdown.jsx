@@ -22,14 +22,8 @@ export const Dropdown = () => {
   const [pricesIsVisible, setPricesIsVisible] = useState(false);
   const [makeValue, setMakeValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
-  const [
-    mileageMinValue,
-    //setMileageMinValue
-  ] = useState("");
-  const [
-    mileageMaxValue,
-    //setMileageMaxValue
-  ] = useState("");
+  const [mileageMinValue, setMileageMinValue] = useState("");
+  const [mileageMaxValue, setMileageMaxValue] = useState("");
 
   var prices = [];
   for (var i = 10; i <= 500; i += 10) {
@@ -135,31 +129,59 @@ export const Dropdown = () => {
           ))}
         </ListPrices>
       </Label>
+
       <Label>
         Сar mileage / km
         <MileageWrapper>
           <Input
             className={"input-mileageMin"}
             type="text"
-            value={mileageMinValue}
+            value={
+              mileageMinValue
+                ? Number(mileageMinValue).toLocaleString("en-US")
+                : ""
+            }
             name="mileageMin"
-            readOnly
+            onChange={(e) => {
+              setMileageMinValue(e.target.value.replace(/\D/g, ""));
+            }}
           />
+          <InputValue
+            className={`mileageMin ${
+              mileageMinValue === "" ? "" : "active_item"
+            }`}
+          >{`From `}</InputValue>
+
           <Input
             className={"input-mileageMax"}
             type="text"
-            value={mileageMaxValue}
+            value={
+              mileageMaxValue
+                ? Number(mileageMaxValue).toLocaleString("en-US")
+                : ""
+            }
             name="mileageMax"
-            readOnly
+            onChange={(e) => {
+              setMileageMaxValue(e.target.value.replace(/\D/g, ""));
+            }}
           />
+          <InputValue
+            className={`mileageMax ${
+              mileageMaxValue === "" ? "" : "active_item"
+            }`}
+          >{` To `}</InputValue>
         </MileageWrapper>
       </Label>
-      
       <Button
         type="submit"
         onClick={() => {
           dispatch(
-            setQuery({ make: `${makeValue}`, rentalPrice: `${priceValue}` })
+            setQuery({
+              make: `${makeValue}`,
+              rentalPrice: `${priceValue}`,
+              mileageMin: `${mileageMinValue}`,
+              mileageMax: `${mileageMaxValue}`,
+            })
           );
         }}
       >

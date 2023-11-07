@@ -30,14 +30,16 @@ export const Label = styled.label`
   }
 
   .input-mileageMin {
-    width: 160px;
+    width: 100px;
+    padding-left: 60px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 1px solid var(--border-color-ten);
   }
 
   .input-mileageMax {
-    width: 160px;
+    width: 114px;
+    padding-left: 46px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -180,7 +182,7 @@ export const ItemPrice = styled.li`
 
 export const InputValue = styled.p`
   position: absolute;
-  bottom: 12px;
+  bottom: 14px;
   left: 10px;
   font-size: 18px;
   font-weight: 500;
@@ -189,11 +191,23 @@ export const InputValue = styled.p`
   &.active_item {
     color: var(--text-color);
   }
-
-`
+`;
 
 export const MileageWrapper = styled.div`
   display: flex;
+
+  > p {
+    position: absolute;
+    left: 0;
+  }
+
+  .mileageMin {
+    left: 10px;
+  }
+
+  .mileageMax {
+    left: 186px;
+  }
 `;
 
 export const Button = styled.button`
