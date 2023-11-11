@@ -26,7 +26,9 @@ const Catalog = () => {
     if (firstRender) {
       setFirstRender(false);
       dispatch(setPage(1));
-      dispatch(setQuery({ make: "" }));
+      dispatch(
+        setQuery({ make: "", rentalPrice: "", mileageMin: "", mileageMax: "" })
+      );
       return;
     }
     dispatch(getAdvertsThunk());

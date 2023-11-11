@@ -226,8 +226,7 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 20px;
 
-  &:hover,
-  :focus {
+  &:hover {
     background-color: var(--blue-active);
     transition: var(--transition);
   }

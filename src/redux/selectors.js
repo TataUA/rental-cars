@@ -20,9 +20,10 @@ export const selectFilteredAdverts = createSelector(
     if (query.rentalPrice === 0) {
       return;
     }
-    let filteredByPrice = filtered.filter(
-      (item) =>
-        Number(item.rentalPrice.substring(1)) >= Number(query.rentalPrice)
+    let filteredByPrice = filtered.filter((item) =>
+      !query.rentalPrice
+        ? item.rentalPrice
+        : Number(item.rentalPrice.substring(1)) <= Number(query.rentalPrice)
     );
 
     if (query.mileageMin === 0 && query.mileageMax === 0) {

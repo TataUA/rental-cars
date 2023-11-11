@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Notiflix from "notiflix";
 import { setQuery } from "redux/advertsSlice";
 import { DownBtn } from "components/DownBtn/DownBtn";
 import makesData from "data/makes.json";
@@ -175,6 +176,12 @@ export const Dropdown = () => {
       <Button
         type="submit"
         onClick={() => {
+          if (mileageMinValue > mileageMaxValue) {
+            Notiflix.Notify.failure(
+              'The field "FROM" the mileage of the car cannot be less than the field "TO"'
+            );
+            return;
+          }
           dispatch(
             setQuery({
               make: `${makeValue}`,

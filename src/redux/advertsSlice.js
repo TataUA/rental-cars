@@ -59,7 +59,7 @@ const advertsSlice = createSlice({
         } else {
           state.adverts.items = [...state.adverts.items, ...payload];
         }
-        if (payload.length < 12 || payload.length === 0) {
+        if (payload.length < 12 ) {
           state.isLoadMoreBtn = false;
         }
       })
