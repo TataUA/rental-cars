@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const LoadMore = styled.button`
   display: block;
   margin: 0 auto;
-  width: 90px;
+  width: 100px;
   height: 24px;
   background-color: transparent;
   border: none;
@@ -12,8 +12,7 @@ export const LoadMore = styled.button`
   font-weight: 500;
   line-height: 24px;
   color: var(--blue);
-  &:hover,
-  :focus {
+  &:hover {
     color: var(--blue-active);
     transition: var(--transition);
   }
